@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Login
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/utils.js")
+  body
+    .container
+      h1.login-title Login
+      form.login-form(method="POST")
+        .form-group
+          label.login-label(for="username") Username:
+          input.login-input(type="text", id="username", name="username", placeholder="Enter your username", required)
+        .form-group
+          label.login-label(for="password") Password:
+          input.login-input(type="password", id="password", name="password", placeholder="Enter your password", required)
+        button.login-button(type="submit") Login
+        p Don't have an account? 
+          a(href="/users/sign-up") Sign up.
+      p.login-error(style="color: red;") #{error || ''}

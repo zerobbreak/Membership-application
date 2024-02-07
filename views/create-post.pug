@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div.container
+    h2 Create a New Post
+
+    // Check if the user is a member of the club
+    if user.memberShipStatus
+      // User details
+      div.profile-details
+        p.profile-detail
+          strong Username:
+          span.profile-value #{user.username}
+        p.profile-detail
+          strong Full Name:
+          span.profile-value #{user.fullName}
+        p.profile-detail
+          strong Email:
+          span.profile-value #{user.email}
+        p.profile-detail
+          strong Registered:
+          span.profile-value #{user.registrationDate}
+
+    // Post creation form
+    form(method="POST")
+      .form-group
+        label(for="username") Username:
+        input.form-control(type="text", id="username", name="username", value=user.username, readonly)
+      .form-group
+        label(for="content") Content:
+        textarea.form-control(name="content", id="content", rows="5", placeholder="Write your post here", required)
+      button.btn.btn-primary(type="submit") Create Post

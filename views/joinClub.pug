@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .join-club-container
+    h1 Enter Password to Join the Club
+    p Hint: Greatest Football Player and is currently at Miami 
+    form(action="/join", method="POST", class="join-club-form")
+      label(for="password", class="join-club-label") Password:
+      input(type="password", name="password", id="password", class="join-club-input")
+      button(type="submit", class="join-club-button") Join Club

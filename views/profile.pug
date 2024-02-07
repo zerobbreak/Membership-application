@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  div.profile-container
+    div.initials-container
+      h2.initials #{user.fullName.substring(0, 2).toUpperCase()}
+
+    // User details
+    div.profile-details
+      p.profile-detail
+        strong Username:
+        span.profile-value #{user.username}
+      p.profile-detail
+        strong Full Name:
+        span.profile-value #{user.fullName}
+      p.profile-detail
+        strong Email:
+        span.profile-value #{user.email}
+      p.profile-detail
+        strong Registered:
+        span.profile-value #{user.registrationDate}
+
+    // User's posts
+    if posts.length > 0
+      h3.profile-subheading Posts
+      ul.posts-container
+        each post in posts
+          li.post 
+            p #{post.content}
+            p #{post.postCreationDate}
+
+    else
+      p.profile-message No posts are available at the moment.
+
+    // User's comments
+    if comments.length > 0
+      h3.profile-subheading Comments
+      ul.comments-container
+        each comment in comments
+          li.comment #{comment.commentContent}
+    else
+      p.profile-message No comments are available at the moment.

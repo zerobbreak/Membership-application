@@ -1,0 +1,25 @@
+html
+  head
+    title Sign Up
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    .container
+      h1 Sign Up
+      form(method="POST")
+        .form-group
+          label(for="fullname") Full Name:
+          input(type="text", id="fullname", name="fullname", placeholder="Enter your full name", required)
+        .form-group
+          label(for="email") Email:
+          input(type="email", id="email", name="email", placeholder="Enter your email address", required)
+        .form-group
+          label(for="username") Username:
+          input(type="text", id="username", name="username", placeholder="Choose a username", required)
+        .form-group
+          label(for="password") Password:
+          input(type="password", id="password", name="password", placeholder="Choose a password", required)
+        button(type="submit") Sign Up
+      p Already have an account? 
+        a(href="/users/login") Login here.
+    p.login-error(style="color: red;") #{error || ''}
